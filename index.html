@@ -4,26 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>HHGroup Project - 001</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <img src="https://via.placeholder.com/90" alt="logo">
+            <img src="./assets/images/logo.png" alt="logo" id="logoContainer">
             <nav>
-                <input type="search to celebrity or movie" id="search" value="search movie or celebrity">
+                <input type="search" id="searchBar" placeholder="search your movie">
             </nav>
         </header>
         <section>
             <div class="card-group">
                 <div class="card">
-                    <img class="tocard-img-p" src="https://via.placeholder.com/200" alt="Card image cap">
+                    <img class="tocard-img-p" id="loadingScreenImg1" src="https://via.placeholder.com/200" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">List of Actors:</h5>
+                        <p class="card-text">
+                            <ul class="listOfActors">
+                                <li id="firstActor1"></li>
+                                <li id="secondActor1"></li>
+                                <li id="thirdActor1"></li>
+                                <li id="fourthActor1"></li>
+                            </ul>
+                        </p>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         <a href="#">movie</a>
                         <a href="#"> bio</a>
