@@ -101,12 +101,12 @@ function genRandMov() {
         'Waves',
         'Uncut Gems',
         'Midsommar',
-        'Joker',
+        'Avengers: Infinity War',
         'Little Women',
         'The Farewell',
         'Knives Out',
         'John Wick',
-        'The Lighthouse',
+        'Hereditary',
         'Us',
         'A Hidden Life',
         'Ad Astra',
@@ -114,9 +114,76 @@ function genRandMov() {
         'High Life',
         '1917',
         'Jojo Rabbit',
+        'BlacKkKlansman',
+        'Spider-Man: Into the Spider-Verse',
+        'Bad Times at the El Royale',
+        'Vice',
+        'Black Panther',
+        'Sorry to Bother You',
+        'Instant Family',
+        'Ant-Man and the Wasp',
+        'The Matrix',
+        'Green Book',
+        'Ready Player One',
+        'Game Night',
+        'Star Wars',
+        'The Empire Strikes Back',
+        'Return of the Jedi',
+        'Force Awakens',
+        'The Last Jedi',
+        'Rise of Skywalker',
+        'Pulp Fiction',
+        'Reservoir Dogs',
+        'Inglourious Basterds',
+        'Django Unchained',
+        'Die Hard',
+        'Tenet',
+        'Avengers Endgame',
+        'Marriage Story',
+        'Honeyland',
+        'Portrait of a Lady on Fire',
+        'Waves',
+        'Uncut Gems',
+        'Midsommar',
+        'Avengers: Infinity War',
+        'Little Women',
+        'The Farewell',
+        'Knives Out',
+        'John Wick',
+        'Hereditary',
+        'Us',
+        'A Hidden Life',
+        'Ad Astra',
+        'Atlantics',
+        'High Life',
+        '1917',
+        'Jojo Rabbit',
+        'BlacKkKlansman',
+        'Spider-Man: Into the Spider-Verse',
+        'Bad Times at the El Royale',
+        'Vice',
+        'Black Panther',
+        'Sorry to Bother You',
+        'Instant Family',
+        'Ant-Man and the Wasp',
+        'The Matrix',
+        'Green Book',
+        'Ready Player One',
+        'Game Night',
+        'Star Wars',
+        'The Empire Strikes Back',
+        'Return of the Jedi',
+        'Force Awakens',
+        'The Last Jedi',
+        'Rise of Skywalker',
+        'Pulp Fiction',
+        'Reservoir Dogs',
+        'Inglourious Basterds',
+        'Django Unchained',
+        'Die Hard',
     ]
-
     let randGenMov = randMovContainer[Math.floor(Math.random() * randMovContainer.length)];
+
     return randGenMov; 
 }
 
@@ -133,24 +200,55 @@ searchBarInputElm.addEventListener('keyup', function(event) {
 });
 
 // function to fetch and append movie review from ny times api
-function getMovReview(movie) {
+function getMovReview1(movie) {
     fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movie + '&api-key=fx2dHCz2zs4KD2BRnWCY4iAkqczVc9v9')
     .then((response) => response.json())
-    .then((data) => appendMovReview(data.results[0].summary_short))
+    .then((data) => appendMovReview1(data.results[0].summary_short))
 }
 
 // append portion of the get movie review
-function appendMovReview(data) {
-    for (let i = 0; i < movieContainer.length; i++) {
-        movieContainer[i].revSummary.innerText = data;
-    }
+function appendMovReview1(data) {
+    movieContainer[0].revSummary.innerText = data;
+}
+
+function getMovReview2(movie) {
+    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movie + '&api-key=fx2dHCz2zs4KD2BRnWCY4iAkqczVc9v9')
+    .then((response) => response.json())
+    .then((data) => appendMovReview2(data.results[0].summary_short))
+}
+
+// append portion of the get movie review
+function appendMovReview2(data) {
+    movieContainer[1].revSummary.innerText = data;
+}
+
+function getMovReview3(movie) {
+    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movie + '&api-key=fx2dHCz2zs4KD2BRnWCY4iAkqczVc9v9')
+    .then((response) => response.json())
+    .then((data) => appendMovReview3(data.results[0].summary_short))
+}
+
+// append portion of the get movie review
+function appendMovReview3(data) {
+    movieContainer[2].revSummary.innerText = data;
+}
+
+function getMovReview4(movie) {
+    fetch('https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=' + movie + '&api-key=fx2dHCz2zs4KD2BRnWCY4iAkqczVc9v9')
+    .then((response) => response.json())
+    .then((data) => appendMovReview4(data.results[0].summary_short))
+}
+
+// append portion of the get movie review
+function appendMovReview4(data) {
+    movieContainer[3].revSummary.innerText = data;
 }
 
 function getHomeApi1(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
 
-    getMovReview(searchedMovie);
+    getMovReview1(searchedMovie);
 
     fetch(requestUrl)
         .then(function (response) {
@@ -176,7 +274,7 @@ function getHomeApi2(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
 
-    getMovReview(searchedMovie);
+    getMovReview2(searchedMovie);
 
     fetch(requestUrl)
         .then(function (response) {
@@ -202,7 +300,7 @@ function getHomeApi3(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
 
-    getMovReview(searchedMovie);
+    getMovReview3(searchedMovie);
 
     fetch(requestUrl)
         .then(function (response) {
@@ -228,7 +326,7 @@ function getHomeApi4(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
 
-    getMovReview(searchedMovie);
+    getMovReview4(searchedMovie);
 
     fetch(requestUrl)
         .then(function (response) {
@@ -263,3 +361,5 @@ function loadHomePage() {
 }
 
 loadHomePage();
+
+    
