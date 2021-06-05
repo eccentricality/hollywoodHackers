@@ -21,6 +21,14 @@ input {
     margin: 10px;
 }
 
+#landingPage {
+    opacity: 0;
+}
+
+#singleSearch {
+    opacity: 1;
+}
+
 .card {
     margin-left: 10px;
     margin-right: 10px;
