@@ -68,7 +68,7 @@ function getApi(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
 
-    getMovReview(searchedMovie);
+    getMovReview1(searchedMovie);
 
     fetch(requestUrl)
         .then(function (response) {
