@@ -22,11 +22,12 @@ input {
 }
 
 #landingPage {
-    opacity: 0;
+    opacity: .5;
 }
 
 #singleSearch {
-    opacity: 1;
+    opacity: .5;
+    position: absolute;
 }
 
 .card {
