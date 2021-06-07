@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Open+Sans:ital,wght@1,800&display=swap');
+
 :root {
     --anvRed: #FC4445;
     --anvTeal: #3FEEE6;
@@ -19,20 +20,48 @@ nav {
 
 input {
     margin: 10px;
+    width: 300px;
+}
+
+#searchHistory {
+    cursor: pointer;
+    width: 300px;
+    color: black;
+    position: absolute;
+    background: var(--anvTeal);
+    opacity: .8;
+    left: 50%;
+    margin-left: -151px;
+    margin-top: -10px;
+    z-index: 99999;
+}
+
+#searchHistory:hover {
+    background: var(--anvTeal);
+}
+
+#searchHistory li:hover {
+    background: var(--anvWhite);
 }
 
 #landingPage {
-    opacity: .5;
+    opacity: 1;
 }
 
 #singleSearch {
     opacity: .5;
     position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 264px;
+    margin-left: -130px;
+    margin-top: -278px;
 }
 
 .card {
     margin-left: 10px;
     margin-right: 10px;
+    opacity: .1;
 }
 
 .card-body {

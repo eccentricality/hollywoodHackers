@@ -2,6 +2,7 @@ const getActorsElm = document.querySelector('button');
 const movPosterImgElm1 = document.getElementById('loadingScreenImg1');
 const searchBarInputElm = document.getElementById('searchBar');
 const loadingScreenDesc1Elm = document.getElementById('loadingScreenDesc1');
+const searchHistoryElm = document.getElementById('searchHistory');
 
 // container to hold all elements to be appended
 let movieContainer = [
@@ -77,7 +78,7 @@ let movieContainer = [
     }
 ]
 
-// search through omdb api to grab data to be utilized
+// search through omdb api to grab data to be utilized and appended to single search card div
 function getApi(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
@@ -104,7 +105,7 @@ function getApi(movie) {
         });
 }
 
-// generates random movie from container of 20 to append on home page
+// generates random movie from container of movies in separate js file to append on home page
 function genRandMov() {
     let randGenMov = randMovContainer[Math.floor(Math.random() * randMovContainer.length)];
 
@@ -119,7 +120,12 @@ function searchInput(){
 // function to pass search bar input into search input function on pressing enter
 searchBarInputElm.addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
+        event.preventDefault();
+        
         searchInput();
+        recallHistory();
+        shortenHistory();
+        searchBarInputElm.value = '';
     }
 });
 
@@ -141,7 +147,6 @@ function getMovReview2(movie) {
     .then((data) => appendMovReview2(data.results[0].summary_short))
 }
 
-// append portion of the get movie review
 function appendMovReview2(data) {
     movieContainer[1].revSummary.innerText = data;
 }
@@ -152,7 +157,6 @@ function getMovReview3(movie) {
     .then((data) => appendMovReview3(data.results[0].summary_short))
 }
 
-// append portion of the get movie review
 function appendMovReview3(data) {
     movieContainer[2].revSummary.innerText = data;
 }
@@ -163,7 +167,6 @@ function getMovReview4(movie) {
     .then((data) => appendMovReview4(data.results[0].summary_short))
 }
 
-// append portion of the get movie review
 function appendMovReview4(data) {
     movieContainer[3].revSummary.innerText = data;
 }
@@ -174,11 +177,11 @@ function getMovReview5(movie) {
     .then((data) => appendMovReview5(data.results[0].summary_short))
 }
 
-// append portion of the get movie review
 function appendMovReview5(data) {
     movieContainer[4].revSummary.innerText = data;
 }
 
+// generates and appends movie contents to 4 separate movie containers on home page
 function getHomeApi1(movie) {
     let requestUrl = 'https://www.omdbapi.com/?apikey=2b59165d&t=' + movie;
     let searchedMovie = movie;
@@ -283,6 +286,7 @@ function getHomeApi4(movie) {
         });
 }
 
+// function to trigger all functions on page load
 function loadHomePage() {
     let homeMovGen1 = genRandMov();
     let homeMovGen2 = genRandMov();
@@ -295,4 +299,73 @@ function loadHomePage() {
     getHomeApi4(homeMovGen4);
 }
 
+// run the function to load home page
 loadHomePage();
+
+// functions to handle local storage and search history
+$(document).ready(function() {
+    // hidden at start
+    $('#searchHistory').hide();
+
+    // reveal on focus for mobile ports
+    $('#searchBar').on('focus', function() {
+        $('searchHistory').show();
+    });
+
+    // show and hide functions
+    $('#searchBar').hover(function() {
+        $('#searchHistory').show();
+    });
+
+    $('#searchHistory').hover(function() {
+        $('#searchHistory').show();
+    });
+
+    $('#searchBar').mouseleave(function() {
+        $('#searchHistory').hide();
+    });
+
+    $('#searchHistory').mouseleave(function() {
+        $('#searchHistory').hide();
+    });
+
+    $('#searchHistory').on('click', 'li', function(e) {
+        e.preventDefault();
+        let textInfo = $(this).text();
+        $('#searchBar').val(textInfo);
+        searchInput();
+        recallHistory();
+        shortenHistory();
+        searchBarInputElm.value = '';
+        $('#searchHistory').toggle();
+    });
+});
+
+// function to recall history and store history
+function recallHistory() {
+    let localSearchHistory = JSON.parse(localStorage.getItem('localStoredHistory')) || [];
+    let searchedMovie = searchBarInputElm.value;
+
+    localSearchHistory.push(searchedMovie);
+
+    searchHistoryElm.innerText = '';
+
+    for (let i = localSearchHistory.length - 1; i >=0; i--) {
+        let li = document.createElement('li');
+
+        li.appendChild(document.createTextNode(localSearchHistory[i]));
+        searchHistoryElm.appendChild(li);
+    }
+
+    localStorage.setItem('localStoredHistory', JSON.stringify(localSearchHistory));
+};
+
+// function to shorten history list
+function shortenHistory() {
+    let localSearchHistory = JSON.parse(localStorage.getItem('localStoredHistory')) || [];
+
+    if (localSearchHistory.length > 5) {
+        localSearchHistory.shift();
+    }
+    localStorage.setItem('localStoredHistory', JSON.stringify(localSearchHistory));
+};
