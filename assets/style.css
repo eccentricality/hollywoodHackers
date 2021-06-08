@@ -48,25 +48,23 @@ input {
     opacity: 1;
 }
 
-#singleSearch {
-    opacity: .5;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 264px;
-    margin-left: -130px;
-    margin-top: -278px;
-}
-
 .card {
     margin-left: 10px;
     margin-right: 10px;
-    opacity: .1;
 }
 
 .card-body {
     text-align: center;
     background-color: var(--anvWhite);
+    max-width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.singleSearchContainer {
+    display: none;
 }
 
 div.stars {

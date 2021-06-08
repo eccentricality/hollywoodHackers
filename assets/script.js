@@ -3,6 +3,12 @@ const movPosterImgElm1 = document.getElementById('loadingScreenImg1');
 const searchBarInputElm = document.getElementById('searchBar');
 const loadingScreenDesc1Elm = document.getElementById('loadingScreenDesc1');
 const searchHistoryElm = document.getElementById('searchHistory');
+const singleSearchElm = document.getElementById('singleSearch');
+const loadCard1Elm = document.getElementById('loadCard1');
+const loadCard2Elm = document.getElementById('loadCard2');
+const loadCard3Elm = document.getElementById('loadCard3');
+const loadCard4Elm = document.getElementById('loadCard4');
+const singleSearchContainerElm = document.getElementById('singleSearchContainer');
 
 // container to hold all elements to be appended
 let movieContainer = [
@@ -126,6 +132,13 @@ searchBarInputElm.addEventListener('keyup', function(event) {
         recallHistory();
         shortenHistory();
         searchBarInputElm.value = '';
+
+        loadCard1Elm.classList.add('hidden');
+        loadCard2Elm.classList.add('hidden');
+        loadCard3Elm.classList.add('hidden');
+        loadCard4Elm.classList.add('hidden');
+
+        singleSearchContainerElm.classList.remove('singleSearchContainer');
     }
 });
 
