@@ -152,6 +152,10 @@ li {
     max-height: 390px;
 }
 
+#loadingScreenImg5 {
+    width: 100%;
+}
+
 .listOfActors {
     padding: 0;
 }

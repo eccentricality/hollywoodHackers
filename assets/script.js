@@ -3,7 +3,6 @@ const movPosterImgElm1 = document.getElementById('loadingScreenImg1');
 const searchBarInputElm = document.getElementById('searchBar');
 const loadingScreenDesc1Elm = document.getElementById('loadingScreenDesc1');
 const searchHistoryElm = document.getElementById('searchHistory');
-const singleSearchElm = document.getElementById('singleSearch');
 const loadCard1Elm = document.getElementById('loadCard1');
 const loadCard2Elm = document.getElementById('loadCard2');
 const loadCard3Elm = document.getElementById('loadCard3');
@@ -108,6 +107,7 @@ function getApi(movie) {
                 movieContainer[4].tomatoRating.innerText = 'Rotten Tomato: ' + data.Ratings[1].Value;
                 movieContainer[4].metaRating.innerText = 'Meta Critic: ' + data.Ratings[2].Value;
                 movieContainer[4].boxOffice.innerText = 'Box Office: ' + data.BoxOffice;
+
         });
 }
 
