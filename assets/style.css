@@ -44,10 +44,6 @@ input {
     background: var(--anvWhite);
 }
 
-#landingPage {
-    opacity: 1;
-}
-
 .card {
     margin-left: 10px;
     margin-right: 10px;
@@ -65,6 +61,10 @@ input {
 
 .singleSearchContainer {
     display: none;
+}
+
+#loadingScreenImg5, #singleSearchCardBody {
+    min-width: 200px;
 }
 
 div.stars {
@@ -165,7 +165,7 @@ li {
     white-space: pre;
 }
 
-#boxOffice1, #boxOffice2, #boxOffice3, #boxOffice4 {
+#boxOffice1, #boxOffice2, #boxOffice3, #boxOffice4, #boxOffice5 {
     font-weight: bold;
     font-size: 15px;
 }
